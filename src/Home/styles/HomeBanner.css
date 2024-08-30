@@ -1,0 +1,11 @@
+.HomeBanner {
+    max-width: 100%;
+    width: 60vw;
+    margin: auto;
+}
+
+@media (max-width: 1200px) {
+    .HomeBanner {
+        text-align: center;
+    }
+}
