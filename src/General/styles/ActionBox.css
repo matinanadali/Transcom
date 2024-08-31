@@ -23,6 +23,9 @@
     .UploadFilesBox {
         box-shadow: none;
     } 
+    .ActionBox {
+        margin-top: 7vh;
+    }
 }
 
 @media (max-width: 1800px) {
@@ -32,9 +35,6 @@
     }
     .uploadFilesButton {
         padding: 0;
-    }
-    .ActionBox {
-        margin-top: 7vh;
     }
     .iconBox {
         padding: 20px 0;

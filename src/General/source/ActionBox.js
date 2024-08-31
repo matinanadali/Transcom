@@ -1,48 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import '../styles/ActionBox.css';
-import { styled } from '@mui/material/styles';
-import { Button, IconButton } from "@mui/material";
-import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import { IconButton } from "@mui/material";
+import UploadFilesButton from "./UploadFilesButton";
 import { Typography, Box } from "@mui/material";
 import { FaPython } from "react-icons/fa";
 import { SiJavascript } from "react-icons/si";
 import { FaJava } from "react-icons/fa6";
 
-const VisuallyHiddenInput = styled('input')({
-    clip: 'rect(0 0 0 0)',
-    clipPath: 'inset(50%)',
-    height: 1,
-    overflow: 'hidden',
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    whiteSpace: 'nowrap',
-    width: 1,
-  });
+const iconSize = '40px';
 
 const ActionBox = () => {
+    const [fileContent, setFileContent] = useState("");
+    const handleFileContentUpdate = (content) => {
+        setFileContent(content);
+    };
 
-
-    const iconSize = '40px';
     return (
     <div className="ActionBox">
         <div className="UploadFilesBox">
-            <Button
-                component="label"
-                role={undefined}
-                variant="contained"
-                tabIndex={-1}
-                startIcon={<CloudUploadIcon />}
-                size = 'large'
-                className="uploadFilesButton"
-                >
-                <Typography variant="h4">Upload files</Typography>
-                <VisuallyHiddenInput
-                    type="file"
-                    onChange={(event) => console.log(event.target.files)}
-                    multiple
-                />
-            </Button>
+            <UploadFilesButton onFileContentUpdate={handleFileContentUpdate}/>
             <Box
                 sx={{
                     display: {
