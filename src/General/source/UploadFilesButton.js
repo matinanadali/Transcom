@@ -2,6 +2,7 @@ import React from 'react';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { Button, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import data from '../../data/data.json';
 
 // Styled input component, visually hidden
 const VisuallyHiddenInput = styled('input')({
@@ -18,8 +19,16 @@ const VisuallyHiddenInput = styled('input')({
 
 const UploadFilesButton = ( { onFileContentUpdate }) => {
   const handleUpload = (event) => {
+    const file = event.target.files[0];
+    const fileExtension = file.name.split('.').pop();
+
+    if (data['supported-languages'].indexOf(fileExtension) === -1) {
+        onFileContentUpdate("");
+        return;
+    }
+
     const reader = new FileReader()
-    reader.readAsText(event.target.files[0])
+    reader.readAsText(file)
     reader.onload = (e) => {
         const content = e.target.result; // Get the file content
         onFileContentUpdate(content);

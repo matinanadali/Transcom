@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import '../styles/ActionBox.css';
-import { IconButton } from "@mui/material";
+import { IconButton, Alert, AlertTitle } from "@mui/material";
 import UploadFilesButton from "./UploadFilesButton";
 import { Typography, Box } from "@mui/material";
 import { FaPython } from "react-icons/fa";
@@ -11,14 +11,23 @@ const iconSize = '40px';
 
 const ActionBox = () => {
     const [fileContent, setFileContent] = useState("");
+    const [alert, setAlert] = useState(false);
     const handleFileContentUpdate = (content) => {
-        setFileContent(content);
+        if (content === "") {
+            setAlert(true);
+        } else {
+            setFileContent(content);
+        }
     };
 
     return (
     <div className="ActionBox">
         <div className="UploadFilesBox">
             <UploadFilesButton onFileContentUpdate={handleFileContentUpdate}/>
+            <Alert className="alert" variant="outlined" severity="error" sx={{display:(alert ? "block" : "none")}}>
+                <AlertTitle sx={{display:"span"}}>Error</AlertTitle>
+                    Unsupported file format.
+                </Alert>
             <Box
                 sx={{
                     display: {
@@ -27,6 +36,7 @@ const ActionBox = () => {
                     },
                 }}
             >
+                
                 <Typography variant="h5">Or drop a file,</Typography>
                 <Typography variant="h6">or paste source code</Typography>
             </Box>

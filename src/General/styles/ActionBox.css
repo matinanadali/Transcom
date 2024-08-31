@@ -19,6 +19,10 @@
     justify-content: space-around;
 }
 
+.alert {
+    width: 80%;
+}
+
 @media (max-width: 1200px) {
     .UploadFilesBox {
         box-shadow: none;

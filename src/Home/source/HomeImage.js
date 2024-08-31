@@ -27,7 +27,7 @@ const HomeImage = () => {
                 <Typography variant="h4">
                     in 
                     <Popover />
-                    programming language across 36 supported human languages!
+                    of the most popular programming languages across 36 supported human languages!
                 </Typography>
             </div>
         </div>
