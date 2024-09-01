@@ -1,0 +1,15 @@
+.Translate {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-grow: 1;
+    width: 60vw;
+    align-items: center;
+    margin: auto;
+}
+
+.codeBox {
+    height: 50vh;
+    width: 100%;
+    font-size: 0.8rem;
+}
