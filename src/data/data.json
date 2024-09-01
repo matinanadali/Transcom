@@ -22,6 +22,6 @@
         }
     }, 
     "supported-languages": [
-        "c", "cpp", "java", "kt"
+        ".c", ".cpp", ".java", ".kt", ".py"
     ]
 }

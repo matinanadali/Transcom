@@ -4,8 +4,15 @@
     margin: auto;
 }
 
+.ActionBoxContainer {
+    margin-top: 20vh;
+}
+
 @media (max-width: 1200px) {
     .HomeBanner {
         text-align: center;
+    }
+    .ActionBoxContainer {
+        margin-top: 7vh;
     }
 }

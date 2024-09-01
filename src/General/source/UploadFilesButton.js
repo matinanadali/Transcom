@@ -20,12 +20,6 @@ const VisuallyHiddenInput = styled('input')({
 const UploadFilesButton = ( { onFileContentUpdate }) => {
   const handleUpload = (event) => {
     const file = event.target.files[0];
-    const fileExtension = file.name.split('.').pop();
-
-    if (data['supported-languages'].indexOf(fileExtension) === -1) {
-        onFileContentUpdate("");
-        return;
-    }
 
     const reader = new FileReader()
     reader.readAsText(file)
@@ -41,11 +35,13 @@ const UploadFilesButton = ( { onFileContentUpdate }) => {
       startIcon={<CloudUploadIcon />}
       size="large"
       className="uploadFilesButton"
+      
     >
       <Typography variant="h4">Upload files</Typography>
       <VisuallyHiddenInput
         type="file"
         onChange={(event) => handleUpload(event)}
+        accept={data['supported-languages'].join(', ')}
         multiple
       />
     </Button>

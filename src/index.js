@@ -11,7 +11,7 @@ const root = ReactDOM.createRoot(rootElement);
 
 root.render(
   <ThemeProvider theme={theme}>
-    <CssBaseline /> {/* This resets and normalizes CSS */}
+    <CssBaseline /> 
     <App />
   </ThemeProvider>
 );

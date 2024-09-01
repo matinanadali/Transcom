@@ -11,7 +11,9 @@ const HomeBanner = () => {
           <HomeImage />
         </Grid>
         <Grid size={{ xs: 12, md: 12, lg: 6}}>
+          <div className="ActionBoxContainer">
           <ActionBox />
+          </div>
         </Grid>
        
       </Grid>

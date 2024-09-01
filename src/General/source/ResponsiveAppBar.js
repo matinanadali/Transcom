@@ -31,7 +31,7 @@ const ResponsiveAppBar = () => {
   );
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{flex: '0 1 auto'}}>
       <Toolbar>
         <IconButton
           edge="start"

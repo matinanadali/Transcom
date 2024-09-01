@@ -1,6 +1,6 @@
-.ActionBoxContainer {
-    width: 40vw;
-    min-width: 200px;
-    margin: auto;
+.Upload {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
