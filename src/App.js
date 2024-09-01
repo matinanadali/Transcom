@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './pages/source/Home';
 import Upload from './pages/source/Upload';
 import Translate from './pages/source/Translate';
 import './App.css';
 import ResponsiveAppBar from './General/source/ResponsiveAppBar';
+import { ContentContext } from './ContentContext';
 
 const App = () => {
+    const [fileContent, setFileContent] = useState("");
+
     return (
     <BrowserRouter>
+    <ContentContext.Provider value={{fileContent, setFileContent}}>
     <div className="App">
     <ResponsiveAppBar />
     
@@ -19,6 +23,7 @@ const App = () => {
           <Route path="translate" element={<Translate />} />
       </Routes>
       </div>
+      </ContentContext.Provider>
     </BrowserRouter>
     )
 }

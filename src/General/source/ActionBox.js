@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import '../styles/ActionBox.css';
 import { IconButton } from "@mui/material";
 import UploadFilesButton from "./UploadFilesButton";
@@ -6,13 +6,18 @@ import { Typography, Box } from "@mui/material";
 import { FaPython } from "react-icons/fa";
 import { SiJavascript } from "react-icons/si";
 import { FaJava } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
+import { ContentContext } from "../../ContentContext";
 
 const iconSize = '40px';
 
 const ActionBox = () => {
-    const [fileContent, setFileContent] = useState("");
+    const { fileContent, setFileContent } = useContext(ContentContext);
+
+    const navigate = useNavigate();
     const handleFileContentUpdate = (content) => {
         setFileContent(content);
+        navigate('/translate');
     };
 
     return (

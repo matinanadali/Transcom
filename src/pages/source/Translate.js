@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ContentContext } from "../../ContentContext";
 
 const Translate = () => {
+    const { fileContent, setFileContent } = useContext(ContentContext);
+
+    console.log(fileContent);
     return (
-        <div></div>
+        <div className="Translate">
+    
+        </div>
     )
 }
 
