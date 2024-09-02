@@ -25,6 +25,261 @@
         ".c", ".cpp", ".java", ".kt", ".py"
     ],
     "supported-source-languages": [
-        "en", "fr", "el"
+            {
+                "code": "AR",
+                "name": "Arabic"
+            },
+            {
+                "code": "BG",
+                "name": "Bulgarian"
+            },
+            {
+                "code": "CS",
+                "name": "Czech"
+            },
+            {
+                "code": "DA",
+                "name": "Danish"
+            },
+            {
+                "code": "DE",
+                "name": "German"
+            },
+            {
+                "code": "EL",
+                "name": "Greek"
+            },
+            {
+                "code": "EN",
+                "name": "English (all English variants)"
+            },
+            {
+                "code": "ES",
+                "name": "Spanish"
+            },
+            {
+                "code": "ET",
+                "name": "Estonian"
+            },
+            {
+                "code": "FI",
+                "name": "Finnish"
+            },
+            {
+                "code": "FR",
+                "name": "French"
+            },
+            {
+                "code": "HU",
+                "name": "Hungarian"
+            },
+            {
+                "code": "ID",
+                "name": "Indonesian"
+            },
+            {
+                "code": "IT",
+                "name": "Italian"
+            },
+            {
+                "code": "JA",
+                "name": "Japanese"
+            },
+            {
+                "code": "KO",
+                "name": "Korean"
+            },
+            {
+                "code": "LT",
+                "name": "Lithuanian"
+            },
+            {
+                "code": "LV",
+                "name": "Latvian"
+            },
+            {
+                "code": "NB",
+                "name": "Norwegian Bokmål"
+            },
+            {
+                "code": "NL",
+                "name": "Dutch"
+            },
+            {
+                "code": "PL",
+                "name": "Polish"
+            },
+            {
+                "code": "PT",
+                "name": "Portuguese (all Portuguese variants)"
+            },
+            {
+                "code": "RO",
+                "name": "Romanian"
+            },
+            {
+                "code": "RU",
+                "name": "Russian"
+            },
+            {
+                "code": "SK",
+                "name": "Slovak"
+            },
+            {
+                "code": "SL",
+                "name": "Slovenian"
+            },
+            {
+                "code": "SV",
+                "name": "Swedish"
+            },
+            {
+                "code": "TR",
+                "name": "Turkish"
+            },
+            {
+                "code": "UK",
+                "name": "Ukrainian"
+            },
+            {
+                "code": "ZH",
+                "name": "Chinese (all Chinese variants)"
+            }        
+    ],
+    "supported-target-languages": [
+        {
+            "code": "AR",
+            "name": "Arabic"
+        },
+        {
+            "code": "BG",
+            "name": "Bulgarian"
+        },
+        {
+            "code": "CS",
+            "name": "Czech"
+        },
+        {
+            "code": "DA",
+            "name": "Danish"
+        },
+        {
+            "code": "DE",
+            "name": "German"
+        },
+        {
+            "code": "EL",
+            "name": "Greek"
+        },
+        {
+            "code": "EN-GB",
+            "name": "English (British)"
+        },
+        {
+            "code": "EN-US",
+            "name": "English (American)"
+        },
+        {
+            "code": "ES",
+            "name": "Spanish"
+        },
+        {
+            "code": "ET",
+            "name": "Estonian"
+        },
+        {
+            "code": "FI",
+            "name": "Finnish"
+        },
+        {
+            "code": "FR",
+            "name": "French"
+        },
+        {
+            "code": "HU",
+            "name": "Hungarian"
+        },
+        {
+            "code": "ID",
+            "name": "Indonesian"
+        },
+        {
+            "code": "IT",
+            "name": "Italian"
+        },
+        {
+            "code": "JA",
+            "name": "Japanese"
+        },
+        {
+            "code": "KO",
+            "name": "Korean"
+        },
+        {
+            "code": "LT",
+            "name": "Lithuanian"
+        },
+        {
+            "code": "LV",
+            "name": "Latvian"
+        },
+        {
+            "code": "NB",
+            "name": "Norwegian Bokmål"
+        },
+        {
+            "code": "NL",
+            "name": "Dutch"
+        },
+        {
+            "code": "PL",
+            "name": "Polish"
+        },
+        {
+            "code": "PT-BR",
+            "name": "Portuguese (Brazilian)"
+        },
+        {
+            "code": "PT-PT",
+            "name": "Portuguese (all Portuguese variants excluding Brazilian Portuguese)"
+        },
+        {
+            "code": "RO",
+            "name": "Romanian"
+        },
+        {
+            "code": "RU",
+            "name": "Russian"
+        },
+        {
+            "code": "SK",
+            "name": "Slovak"
+        },
+        {
+            "code": "SL",
+            "name": "Slovenian"
+        },
+        {
+            "code": "SV",
+            "name": "Swedish"
+        },
+        {
+            "code": "TR",
+            "name": "Turkish"
+        },
+        {
+            "code": "UK",
+            "name": "Ukrainian"
+        },
+        {
+            "code": "ZH-HANS",
+            "name": "Chinese (simplified)"
+        },
+        {
+            "code": "ZH-HANT",
+            "name": "Chinese (traditional)"
+        }
     ]
+    
+    
 }

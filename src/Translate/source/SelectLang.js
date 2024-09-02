@@ -16,8 +16,8 @@ const SelectLang = ({ lang, label, setLang }) => {
     onChange={handleChange}
     sx={{"padding":"0rem"}}
   >
-   {data['supported-source-languages'].map((language) => 
-      <MenuItem value={language}>{language}</MenuItem>)}
+   {data[(label==="Source Language") ? 'supported-source-languages' : 'supported-target-languages'].map((language) => 
+      <MenuItem value={language.code}>{language.name}</MenuItem>)}
   </Select>
 
   </div>
