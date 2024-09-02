@@ -23,5 +23,8 @@
     }, 
     "supported-languages": [
         ".c", ".cpp", ".java", ".kt", ".py"
+    ],
+    "supported-source-languages": [
+        "en", "fr", "el"
     ]
 }

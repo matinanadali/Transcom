@@ -1,15 +1,44 @@
 .Translate {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     flex-grow: 1;
-    width: 60vw;
+    width: 100vw;
     align-items: center;
-    margin: auto;
 }
 
 .codeBox {
     height: 50vh;
     width: 100%;
     font-size: 0.8rem;
+}
+
+.codeBoxContainer {
+    width: 60vw;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.langSelectContainer {
+    width: 60vw;
+    justify-content: center;
+    align-items: space-around;
+}
+
+.translateButton {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.sourceLangSelect {
+    text-align: right;
+}
+
+@media(max-width: 1200px) {
+    .langSelect {
+        text-align: center;
+    }
 }
