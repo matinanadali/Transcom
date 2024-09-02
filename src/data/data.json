@@ -1,26 +1,4 @@
 {
-    "comments": {
-        "c": {
-            "one-line": "//",
-            "multi-line-start": "/*" ,
-            "multi-line-end": "*/"
-        },
-        "cpp": {
-            "one-line": "//",
-            "multi-line-start": "/*" ,
-            "multi-line-end": "*/"
-        },
-        "java": {
-            "one-line": "//",
-            "multi-line-start": "/*" ,
-            "multi-line-end": "*/"
-        },
-        "kotlin": {
-            "one-line": "//",
-            "multi-line-start": "/*" ,
-            "multi-line-end": "*/"
-        }
-    }, 
     "supported-languages": [
         {
             "fileExtension": ".py",

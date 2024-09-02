@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import { ContentContext } from "../../ContentContext";
 import Grid from "@mui/material/Grid2";
 import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/default-highlight";
@@ -8,6 +8,8 @@ import Lottie from "react-lottie";
 import { translateComments } from '../../Translate/source/translateComments';
 import SelectLang from '../../Translate/source/SelectLang';
 import { Button } from '@mui/material';
+import DownloadButton from "../../Translate/source/DownloadButton";
+import data from "../../data/data.json";
 
 const defaultOptions = {
     loop: true,
@@ -20,39 +22,39 @@ const defaultOptions = {
 
 const Translate = () => {
     const { file } = useContext(ContentContext);
-    const [translatedContent, setTranslatedContent] = useState('');
-    const [sourceLang, setSourceLang] = useState('EN');
+    const [translatedFile, setTranslatedFile] = useState({name:"", content:"", extension:""});
     const [targetLang, setTargetLang] = useState('EN');
 
-    const onSourceLangChange = (newSourceLang) => {
-        setSourceLang(newSourceLang);
-    }
     const onTargetLangChange = (newTargetLang) => {
         setTargetLang(newTargetLang);
     }
 
     const onTranslateButtonClick = async () => {
         try {
+            const fileName = file.name.split('.').shift() + '_' + data['supported-target-languages'].find((lang) => lang.code === targetLang).name;
             const translated = await translateComments(file.content, targetLang, file.extension);
-            setTranslatedContent(translated || file.content); // Fallback to original if translation fails
-        } catch (error) {
+            setTranslatedFile({name: fileName, extension: file.extension, content: translated} || file); 
+            } catch (error) {
             console.error('Error fetching translated comments:', error);
-            setTranslatedContent(file.content); // Fallback to original if an error occurs
+            setTranslatedFile(file); // Fallback to original if an error occurs
         }
     };
  
     return (
         <div className="Translate">
         
-        <Grid container className="langSelectContainer" spacing={5}>
-        <Grid className="sourceLangSelect langSelect" item size={{ xs: 12, md: 12, lg: 5}}>
-        <SelectLang lang={sourceLang} label="Source Language" setLang={onSourceLangChange} />
-        </Grid>
-        <Grid className="langSelect" item size={{ xs: 12, md: 12, lg: 5}}>
+        <Grid container className="langSelectContainer" rowSpacing={0} columnSpacing={5}>
+
+        <Grid className="langSelect" item size={{ xs: 12, md: 12, lg: 12}}>
         <SelectLang lang={targetLang} label="Target Language" setLang={onTargetLangChange} />
         </Grid>
-        <Grid className="translateButton" item size={{ xs: 12, md: 12, lg:12}}>
+        <Grid className="translateButton button" item size={{ xs: 12, md: 12, lg:6}}>
         <Button variant="contained" onClick={onTranslateButtonClick}>Translate!</Button>
+        
+        
+        </Grid>
+        <Grid className="downloadButton button" item size={{ xs: 12, md: 12, lg:6}}>
+        <DownloadButton file={translatedFile} targetLang={targetLang} />
         
         
         </Grid>
@@ -62,7 +64,7 @@ const Translate = () => {
         <Grid container className="codeBoxContainer" columnSpacing={2} size='12'>
             
         <Grid size={{ xs: 12, md: 12, lg: 5}}>
-        
+          <div className="fileName">{file.name}</div>
           <SyntaxHighlighter className="codeBox">
             {file.content}
           </SyntaxHighlighter>
@@ -72,8 +74,9 @@ const Translate = () => {
         </Grid>
         
         <Grid size={{ xs: 12, md: 12, lg: 5}}>
+        <div className="fileName">{translatedFile.name}</div>
         <SyntaxHighlighter  className="codeBox">
-            {translatedContent}
+            {translatedFile.content}
           </SyntaxHighlighter>
         </Grid>
        
