@@ -1,6 +1,6 @@
 import axios from "axios";
+import data from '../../data/data.json';
 
-const targetLang = 'fr';
 const DEEPL_API_KEY = '6cd902fc-71d9-45cf-9dc6-7a87ca5b4cae:fx'; // Replace with your actual DeepL API key
 const DEEPL_API_URL = 'https://api-free.deepl.com/v2/translate'; // Adjust to 'https://api.deepl.com/v2/translate' if using the paid plan
 
@@ -30,12 +30,8 @@ const translateText = async (text, targetLang) => {
     }
 };
 
-const extractComments = (code) => {
-    // Regular expressions for extracting comments from JavaScript
+const extractComments = (code, regex) => {
     const comments = [];
-    
-    // Match single-line comments (//) and multi-line comments (/* */)
-    const regex = /\/\/.*|\/\*[\s\S]*?\*\//g;
     let match;
 
     while ((match = regex.exec(code)) !== null) {
@@ -45,14 +41,37 @@ const extractComments = (code) => {
     return comments;
 };
 
-const replaceComments = (code, commentTranslations) => {
+const replaceComments = (code, commentTranslations, regex) => {
     let i = 0;
-    return code.replace(/\/\/.*|\/\*[\s\S]*?\*\//g, (match) => commentTranslations[i++] || match);
+    // Ensure the regex object has the global flag for replacement
+    const globalRegex = new RegExp(regex.source, 'g');
+    return code.replace(globalRegex, (match) => commentTranslations[i++] || match);
 };
 
-export const translateComments = async (code, targetLang) => {
+export const translateComments = async (code, targetLang, fileExtension) => {
+    // Find the regex string from the data
+    const regexString = data['supported-languages'].find((lang) => lang.fileExtension === fileExtension).commentRegex;
+
+    // Ensure the regex string is valid
+    let regex;
     try {
-        const comments = extractComments(code);
+        // Check if the regex string has leading and trailing slashes (common in literal regexes)
+        if (regexString.startsWith('/') && regexString.endsWith('/')) {
+            // Extract pattern and flags
+            const regexPattern = regexString.slice(1, -1); // Remove leading and trailing slashes
+            const regexFlags = regexString.match(/\/([gimsuy]*)$/)[1]; // Extract flags
+            regex = new RegExp(regexPattern, regexFlags);
+        } else {
+            // If no slashes, assume regexString is a valid pattern with no flags
+            regex = new RegExp(regexString, 'g');
+        }
+    } catch (error) {
+        console.error('Error creating RegExp:', error);
+        return null;
+    }
+
+    try {
+        const comments = extractComments(code, regex);
 
         // Translate each comment
         const translations = await Promise.all(
@@ -70,7 +89,7 @@ export const translateComments = async (code, targetLang) => {
         });
 
         // Replace original comments with translated comments in the code
-        const translatedCode = replaceComments(code, commentTranslations);
+        const translatedCode = replaceComments(code, commentTranslations, regex);
 
         return translatedCode;
     } catch (error) {

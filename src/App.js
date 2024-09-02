@@ -8,11 +8,11 @@ import ResponsiveAppBar from './General/source/ResponsiveAppBar';
 import { ContentContext } from './ContentContext';
 
 const App = () => {
-    const [fileContent, setFileContent] = useState("");
+    const [file, setFile] = useState({});
 
     return (
     <BrowserRouter>
-    <ContentContext.Provider value={{fileContent, setFileContent}}>
+    <ContentContext.Provider value={{file, setFile}}>
     <div className="App">
     <ResponsiveAppBar />
     

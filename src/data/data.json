@@ -22,8 +22,68 @@
         }
     }, 
     "supported-languages": [
-        ".c", ".cpp", ".java", ".kt", ".py"
+        {
+            "fileExtension": ".py",
+            "commentRegex": "#.*"
+        },
+        {
+            "fileExtension": ".js",
+            "commentRegex": "//.*|/\\*[^*]*\\*+(?:[^/*][^*]*\\*+)*/"
+        },
+        {
+            "fileExtension": ".java",
+            "commentRegex": "//.*|/\\*[^*]*\\*+(?:[^/*][^*]*\\*+)*/"
+        },
+        {
+            "fileExtension": ".cpp",
+            "commentRegex": "//.*|/\\*[^*]*\\*+(?:[^/*][^*]*\\*+)*/"
+        },
+        {
+            "fileExtension": ".cs",
+            "commentRegex": "//.*|/\\*[^*]*\\*+(?:[^/*][^*]*\\*+)*/|<!--.*?-->"
+        },
+        {
+            "fileExtension": ".rb",
+            "commentRegex": "#.*"
+        },
+        {
+            "fileExtension": ".php",
+            "commentRegex": "//.*|/\\*[^*]*\\*+(?:[^/*][^*]*\\*+)*/|#.*"
+        },
+        {
+            "fileExtension": ".html",
+            "commentRegex": "<!--.*?-->"
+        },
+        {
+            "fileExtension": ".css",
+            "commentRegex": "/\\*[^*]*\\*+(?:[^/*][^*]*\\*+)*/"
+        },
+        {
+            "fileExtension": ".sql",
+            "commentRegex": "--.*|/\\*[^*]*\\*+(?:[^/*][^*]*\\*+)*/"
+        },
+        {
+            "fileExtension": ".swift",
+            "commentRegex": "//.*|/\\*[^*]*\\*+(?:[^/*][^*]*\\*+)*/"
+        },
+        {
+            "fileExtension": ".kt",
+            "commentRegex": "//.*|/\\*[^*]*\\*+(?:[^/*][^*]*\\*+)*/"
+        },
+        {
+            "fileExtension": ".r",
+            "commentRegex": "#.*"
+        },
+        {
+            "fileExtension": ".pl",
+            "commentRegex": "#.*"
+        },
+        {
+            "fileExtension": ".go",
+            "commentRegex": "//.*|/\\*[^*]*\\*+(?:[^/*][^*]*\\*+)*/"
+        }
     ],
+    
     "supported-source-languages": [
             {
                 "code": "AR",

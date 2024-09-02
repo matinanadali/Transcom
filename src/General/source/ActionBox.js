@@ -12,18 +12,18 @@ import { ContentContext } from "../../ContentContext";
 const iconSize = '40px';
 
 const ActionBox = () => {
-    const { fileContent, setFileContent } = useContext(ContentContext);
+    const { file, setFile } = useContext(ContentContext);
 
     const navigate = useNavigate();
-    const handleFileContentUpdate = (content) => {
-        setFileContent(content);
+    const handleFileUpdate = (file) => {
+        setFile(file);
         navigate('/translate');
     };
 
     return (
     <div className="ActionBox">
         <div className="UploadFilesBox">
-            <UploadFilesButton onFileContentUpdate={handleFileContentUpdate}/>
+            <UploadFilesButton onFileUpdate={handleFileUpdate}/>
             <Box
                 sx={{
                     display: {

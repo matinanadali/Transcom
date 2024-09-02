@@ -19,10 +19,10 @@ const defaultOptions = {
 };
 
 const Translate = () => {
-    const { fileContent } = useContext(ContentContext);
+    const { file } = useContext(ContentContext);
     const [translatedContent, setTranslatedContent] = useState('');
-    const [sourceLang, setSourceLang] = useState('en');
-    const [targetLang, setTargetLang] = useState('en');
+    const [sourceLang, setSourceLang] = useState('EN');
+    const [targetLang, setTargetLang] = useState('EN');
 
     const onSourceLangChange = (newSourceLang) => {
         setSourceLang(newSourceLang);
@@ -33,11 +33,11 @@ const Translate = () => {
 
     const onTranslateButtonClick = async () => {
         try {
-            const translated = await translateComments(fileContent, targetLang);
-            setTranslatedContent(translated || fileContent); // Fallback to original if translation fails
+            const translated = await translateComments(file.content, targetLang, file.extension);
+            setTranslatedContent(translated || file.content); // Fallback to original if translation fails
         } catch (error) {
             console.error('Error fetching translated comments:', error);
-            setTranslatedContent(fileContent); // Fallback to original if an error occurs
+            setTranslatedContent(file.content); // Fallback to original if an error occurs
         }
     };
  
@@ -64,7 +64,7 @@ const Translate = () => {
         <Grid size={{ xs: 12, md: 12, lg: 5}}>
         
           <SyntaxHighlighter className="codeBox">
-            {fileContent}
+            {file.content}
           </SyntaxHighlighter>
         </Grid>
         <Grid size={{ xs: 0, md: 0, lg: 2}}>

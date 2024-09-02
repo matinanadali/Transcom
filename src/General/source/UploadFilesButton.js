@@ -17,15 +17,15 @@ const VisuallyHiddenInput = styled('input')({
   width: 1,
 });
 
-const UploadFilesButton = ( { onFileContentUpdate }) => {
+const UploadFilesButton = ( { onFileUpdate }) => {
   const handleUpload = (event) => {
     const file = event.target.files[0];
-
+    const extension = '.' + file.name.split('.').pop();
     const reader = new FileReader()
     reader.readAsText(file)
     reader.onload = (e) => {
         const content = e.target.result; // Get the file content
-        onFileContentUpdate(content);
+        onFileUpdate({name:file.name, extension:extension, content: content});
     };
   }
   return (
@@ -41,7 +41,7 @@ const UploadFilesButton = ( { onFileContentUpdate }) => {
       <VisuallyHiddenInput
         type="file"
         onChange={(event) => handleUpload(event)}
-        accept={data['supported-languages'].join(', ')}
+        accept={data['supported-languages'].map((lang) => lang.fileExtension).join(', ')}
         multiple
       />
     </Button>
