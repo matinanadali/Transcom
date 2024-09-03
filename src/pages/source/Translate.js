@@ -11,6 +11,8 @@ import { Button, Skeleton } from '@mui/material';
 import DownloadButton from "../../Translate/source/DownloadButton";
 import data from "../../data/data.json";
 import { monokaiSublime } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import CopyButton from "../../Translate/source/CopyButton";
+
 
 
 const defaultOptions = {
@@ -80,10 +82,15 @@ const Translate = () => {
         </Grid>
         
         <Grid size={{ xs: 12, md: 12, lg: 5}}>
-        <div className="fileName">{translatedFile.name + translatedFile.extension}</div>
+        <div className="fileName">
+          <div>
+          {translatedFile.name + translatedFile.extension}
+          </div>
+          <CopyButton text={translatedFile.content} />
+          </div>
         {
           (loading) ? (
-            <Skeleton animation="wave" variant="rectangular" sx={{ bgcolor: "#e0e0e0", height: '50vh', width: '100%' }}>
+            <Skeleton  variant="rectangular" sx={{ bgcolor: "#e0e0e0", height: '50vh', width: '100%', transform: "unset" }}>
               <SyntaxHighlighter  style={monokaiSublime} id="translatedCode" className="codeBox">
                 {translatedFile.content}
               </SyntaxHighlighter>
