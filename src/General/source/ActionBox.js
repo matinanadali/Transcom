@@ -9,6 +9,7 @@ import { FaJava } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import { ContentContext } from "../../ContentContext";
 import AlertBox from "./AlertBox";
+import DragDropArea from "./DragDropArea";
 
 const iconSize = '40px';
 
@@ -31,6 +32,7 @@ const ActionBox = () => {
     <div className="ActionBox">
         <AlertBox display = {alert} />
         <div className="UploadFilesBox">
+            <DragDropArea onFileUpdate={handleFileUpdate} />
             <UploadFilesButton onFileUpdate={handleFileUpdate}/>
             <Box
                 sx={{

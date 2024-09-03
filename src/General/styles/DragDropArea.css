@@ -1,0 +1,78 @@
+.DragDropArea {
+    text-align: center;
+    background-color: #229799;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+}
+
+.drop-active {
+    opacity: 0.8;
+    z-index: 10;
+}
+
+.drop-inactive {
+    opacity: 0;
+}
+
+.DragDropArea {
+    span.border_btm {
+      &:after {
+        display: block;
+        content: "";
+        width: 90px;
+        height: 90px;
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        border-bottom: 20px solid #424242;
+        border-right: 20px solid #424242;
+        opacity: 1 !important; 
+      }
+      &:before {
+        display: block;
+        content: "";
+        width: 90px;
+        height: 90px;
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        border-bottom: 20px solid #424242;
+        border-left: 20px solid #424242;
+        opacity: 1 !important; 
+      }
+    }
+    &:before {
+      display: block;
+      content: "";
+      width: 90px;
+      height: 90px;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      border-top: 20px solid #424242;
+      border-left: 20px solid #424242;
+      opacity: 1 !important; 
+    }
+    &:after {
+      display: block;
+      content: "";
+      width: 90px;
+      height: 90px;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      border-top: 20px solid #424242;
+      border-right: 20px solid #424242;
+      opacity: 1 !important; 
+    }
+  }
+  
