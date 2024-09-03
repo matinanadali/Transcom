@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import '../styles/ActionBox.css';
 import { IconButton } from "@mui/material";
 import UploadFilesButton from "./UploadFilesButton";
@@ -8,20 +8,28 @@ import { SiJavascript } from "react-icons/si";
 import { FaJava } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import { ContentContext } from "../../ContentContext";
+import AlertBox from "./AlertBox";
 
 const iconSize = '40px';
 
 const ActionBox = () => {
     const { file, setFile } = useContext(ContentContext);
+    const [ alert, setAlert ] = useState(false);
 
     const navigate = useNavigate();
     const handleFileUpdate = (file) => {
-        setFile(file);
-        navigate('/translate');
+        if (file === null) {
+            setAlert(true);
+        } else {
+            setAlert(false);
+            setFile(file);
+            navigate('/translate');
+        }
     };
 
     return (
     <div className="ActionBox">
+        <AlertBox display = {alert} />
         <div className="UploadFilesBox">
             <UploadFilesButton onFileUpdate={handleFileUpdate}/>
             <Box
