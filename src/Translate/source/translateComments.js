@@ -31,20 +31,32 @@ const translateText = async (text, targetLang) => {
 };
 
 const extractComments = (code, regex) => {
+    console.log("Start extracting comments");
+
+    // Use a Set to avoid duplicate comments if necessary
     const comments = [];
     let match;
 
+    // Make sure the regex has the global flag to find all matches
     while ((match = regex.exec(code)) !== null) {
         comments.push(match[0]);
+        // Move the regex lastIndex to the end of the current match
+        // This is important to avoid infinite loops with the global flag
+        if (regex.lastIndex === match.index) {
+            regex.lastIndex++;
+        }
     }
 
+    console.log("Extracted comments");
     return comments;
 };
+
 
 const replaceComments = (code, commentTranslations, regex) => {
     let i = 0;
     // Ensure the regex object has the global flag for replacement
     const globalRegex = new RegExp(regex.source, 'g');
+    console.log("replaced comments");
     return code.replace(globalRegex, (match) => commentTranslations[i++] || match);
 };
 
