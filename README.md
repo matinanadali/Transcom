@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+# TransCom
+A web application designed to help developers translate comments in their source code files into different languages. With support for up to 36 target languages, TransCom makes it easy to manage and understand code comments in a variety of languages.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Main Features
+**1. File Upload:** Upload source files via direct upload, drag-and-drop, or paste.
 
-## Available Scripts
+**2. Language Selection:** Choose from 36 available target languages for translation.
 
-In the project directory, you can run:
+**3. Translation:** Automatically translates comments in the code to the selected language using the DeepL API.
 
-### `npm start`
+**4. Output Options:** Copy translated content to clipboard or download the translated file.
+**5. Responsive Design:** The application is designed to adapt to various devices and screen sizes.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies Used
+**1.React.js:** For building the user interface.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**2.DeepL API:** For translating comments.
 
-### `npm test`
+**3. Material UI:** For designing user interface.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Installation
+To run TransCom locally, follow these steps:
 
-### `npm run build`
+**1. Clone the repository**
+```shell
+git clone https://github.com/matinanadali/transcom.git
+cd transcom
+```
+**2. Install Dependencies**
+```shell
+npm install
+```
+**3. Start the Development Center**
+```shell
+npm start
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Contibute
+Contributions are always welcome! If you have suggestions, bug reports, or would like to add new features, please open an issue or submit a pull request. 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Needed improvements/ issues to resolve
+1. General Performance
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+     - [ ] Drag-and-drop feature bug fix. At this time, the drag-and-drop functionality for file uploads is not supported.
+     - [ ] Automatic recognition of the source language of the pasted text.
+   
+2. User Interface
+   
+     - [ ] Searchable dropdown for languages
+     - [ ] Design how-to-use and contact pages
 
-### `npm run eject`
+3. Additional features
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+     - [ ] Code samples for the user to test the functionality of the app.
+     - [ ] Support for multiple file and directory uploads.
+     - [ ] Support for more programming languages.
+   
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
