@@ -3,8 +3,6 @@ import { Dialog, Button, Typography, Select, MenuItem, Alert } from '@mui/materi
 import '../styles/PasteArea.css';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
 import '../styles/PasteArea.css';
 import data from '../../data/data.json';
 
@@ -12,10 +10,6 @@ const PasteArea = ( { onFileUpdate, openPasteArea, setOpenPasteArea }) => {
     const [ language, setLanguage ] = useState("C++");
     const [ text, setText ] = useState("");
     const [ alert, setAlert ] = useState(false);
-    const handlePaste = (event) => {
-        const content = event.clipboardData.getData('Text');
-        console.log(content);
-    }
     const handleClose = () => {
         setOpenPasteArea(false);
     }

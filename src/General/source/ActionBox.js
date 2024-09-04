@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect, useRef } from "react";
+import React, { useContext, useState } from "react";
 import '../styles/ActionBox.css';
 import { IconButton } from "@mui/material";
 import UploadFilesButton from "./UploadFilesButton";
@@ -15,7 +15,7 @@ import PasteArea from "./PasteArea";
 const iconSize = '40px';
 
 const ActionBox = () => {
-    const { file, setFile } = useContext(ContentContext);
+    const { setFile } = useContext(ContentContext);
     const [ alertText, setAlertText ] = useState("");
     const [ openPasteArea, setOpenPasteArea ] = useState(false);
 
