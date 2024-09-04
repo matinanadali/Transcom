@@ -1,8 +1,8 @@
 import axios from "axios";
 import data from '../../data/data.json';
 
-const DEEPL_API_KEY = '6cd902fc-71d9-45cf-9dc6-7a87ca5b4cae:fx'; // Replace with your actual DeepL API key
-const DEEPL_API_URL = 'https://api-free.deepl.com/v2/translate'; // Adjust to 'https://api.deepl.com/v2/translate' if using the paid plan
+const DEEPL_API_KEY = process.env.API_KEY;
+const DEEPL_API_URL = 'https://api-free.deepl.com/v2/translate';
 
 const translateText = async (text, targetLang) => {
     try {

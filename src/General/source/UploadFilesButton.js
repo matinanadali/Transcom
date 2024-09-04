@@ -21,12 +21,14 @@ const UploadFilesButton = ( { onFileUpdate }) => {
   const handleUpload = (event) => {
     const file = event.target.files[0];
     const extension = '.' + file.name.split('.').pop();
+
+    // Unsupported file format
     if (data['supported-languages'].map((lang) => lang.fileExtension).indexOf(extension) === -1) {
       onFileUpdate(null);
     } else {
-          const reader = new FileReader();
-          reader.readAsText(file);
-          reader.onload = (e) => {
+        const reader = new FileReader();
+        reader.readAsText(file);
+        reader.onload = (e) => {
           const content = e.target.result; // Get the file content
           onFileUpdate({name:file.name, extension:extension, content: content});
         }

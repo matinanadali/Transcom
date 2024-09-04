@@ -19,6 +19,7 @@ const Message = ( {text, open, setOpen} ) => {
           </IconButton>
         </React.Fragment>
     );
+    
     return (
         <Snackbar
             open={open}

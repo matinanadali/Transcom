@@ -2,23 +2,22 @@ import React from 'react';
 import Lottie from 'react-lottie';
 import welcome from '../../gifs/welcome';
 import Popover from './Popover';
-import '../styles/HomeImage.css';
 import { Typography } from '@mui/material';
 
-const HomeImage = () => {
-    const defaultOptions = {
-        loop: true,
-        autoplay: true,
-        animationData: welcome,
-        rendererSettings: {
-            preserveAspectRatio: "xMidYMid slice",
-        },
-    };
+const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: welcome,
+    rendererSettings: {
+        preserveAspectRatio: "xMidYMid slice",
+    },
+};
 
+const HomeImage = () => {
     return (
         <div className="HomeImage">
             <div>
-             <Lottie options={defaultOptions} height="auto" width="100%" />
+                <Lottie options={defaultOptions} height="auto" width="100%" />
             </div>
             <div>
                 <Typography variant="h3">

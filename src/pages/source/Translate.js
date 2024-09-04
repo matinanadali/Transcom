@@ -13,8 +13,7 @@ import data from "../../data/data.json";
 import { monokaiSublime } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import CopyButton from "../../Translate/source/CopyButton";
 
-
-
+// Lottie animation default options
 const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -40,7 +39,7 @@ const Translate = () => {
             const fileName = file.name.split('.').shift() + '_' + data['supported-target-languages'].find((lang) => lang.code === targetLang).name;
             const translated = await translateComments(file.content, targetLang, file.extension);
             setTranslatedFile({name: fileName, extension: file.extension, content: translated} || file); 
-            } catch (error) {
+        } catch (error) {
             console.error('Error fetching translated comments:', error);
             setTranslatedFile(file); // Fallback to original if an error occurs
         }
@@ -50,60 +49,54 @@ const Translate = () => {
     return (
         <div className="Translate">
         
-        <Grid container className="langSelectContainer" rowSpacing={0} columnSpacing={5}>
+          <Grid container className="langSelectContainer" rowSpacing={0} columnSpacing={5}>
 
-        <Grid className="langSelect" item size={{ xs: 12, md: 12, lg: 12}}>
-        <SelectLang lang={targetLang} setLang={onTargetLangChange} />
-        </Grid>
-        <Grid className="translateButton button" item size={{ xs: 12, md: 12, lg:6}}>
-        <Button variant="contained" onClick={onTranslateButtonClick}>Translate!</Button>
+            <Grid className="langSelect" item size={{ xs: 12, md: 12, lg: 12}}>
+              <SelectLang lang={targetLang} setLang={onTargetLangChange} />
+             </Grid>
+            <Grid className="translateButton button" item size={{ xs: 12, md: 12, lg:6}}>
+              <Button variant="contained" onClick={onTranslateButtonClick}>Translate!</Button>
+            </Grid>
+            <Grid className="downloadButton button" item size={{ xs: 12, md: 12, lg:6}}>
+              <DownloadButton file={translatedFile} targetLang={targetLang} />
+            </Grid>
+
+          </Grid>
         
-        
-        </Grid>
-        <Grid className="downloadButton button" item size={{ xs: 12, md: 12, lg:6}}>
-        <DownloadButton file={translatedFile} targetLang={targetLang} />
-        
-        
-        </Grid>
-        
-        </Grid>
-        
-        <Grid container className="codeBoxContainer" columnSpacing={2} size='12'>
+          <Grid container className="codeBoxContainer" columnSpacing={2} size='12'>
             
-        <Grid size={{ xs: 12, md: 12, lg: 5}}>
-          <div className="fileName">{file.name}</div>
-          <SyntaxHighlighter language="python" style={monokaiSublime} className="codeBox">
-            {file.content}
-         
-          </SyntaxHighlighter>
-        </Grid>
-        <Grid size={{ xs: 0, md: 0, lg: 2}}>
-        <Lottie options={defaultOptions} height="auto" width="100%" />
-        </Grid>
-        
-        <Grid size={{ xs: 12, md: 12, lg: 5}}>
-        <div className="fileName">
-          <div>
-          {translatedFile.name + translatedFile.extension}
-          </div>
-          <CopyButton text={translatedFile.content} />
-          </div>
-        {
-          (loading) ? (
-            <Skeleton  variant="rectangular" sx={{ bgcolor: "#e0e0e0", height: '50vh', width: '100%', transform: "unset" }}>
-              <SyntaxHighlighter  style={monokaiSublime} id="translatedCode" className="codeBox">
-                {translatedFile.content}
+            <Grid size={{ xs: 12, md: 12, lg: 5}}>
+              <div className="fileName">{file.name}</div>
+              <SyntaxHighlighter language="python" style={monokaiSublime} className="codeBox">
+                {file.content}
               </SyntaxHighlighter>
-            </Skeleton>
-          ) : (
-            <SyntaxHighlighter  style={monokaiSublime} id="translatedCode" className="codeBox">
-                {translatedFile.content}
-              </SyntaxHighlighter>
-          )
-        }
-        </Grid>
+            </Grid>
+            <Grid size={{ xs: 0, md: 0, lg: 2}}>
+              <Lottie options={defaultOptions} height="auto" width="100%" />
+            </Grid>
+            <Grid size={{ xs: 12, md: 12, lg: 5}}>
+              <div className="fileName">
+                <div>
+                  {translatedFile.name + translatedFile.extension}
+                </div>
+                 <CopyButton text={translatedFile.content} />
+              </div>
+              {
+                (loading) ? (
+                  <Skeleton  variant="rectangular" sx={{ bgcolor: "#e0e0e0", height: '50vh', width: '100%'}}>
+                    <SyntaxHighlighter  style={monokaiSublime} id="translatedCode" className="codeBox">
+                      {translatedFile.content}
+                    </SyntaxHighlighter>
+                  </Skeleton>
+                ) : (
+                  <SyntaxHighlighter  style={monokaiSublime} id="translatedCode" className="codeBox">
+                      {translatedFile.content}
+                    </SyntaxHighlighter>
+                )
+              }
+            </Grid>
        
-      </Grid>
+          </Grid>
       </div>
     )
 }

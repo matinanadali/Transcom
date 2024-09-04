@@ -80,9 +80,7 @@
             "commentRegex": "//.*|/\\*[^*]*\\*+(?:[^/*][^*]*\\*+)*/g",
             "name": "Go"
         }
-    ],
-    
-    
+    ],  
     "supported-source-languages": [
             {
                 "code": "AR",
@@ -339,6 +337,4 @@
             "name": "Chinese (traditional)"
         }
     ]
-    
-    
 }

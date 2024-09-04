@@ -1,8 +1,6 @@
-// src/theme.js
 import { createTheme } from '@mui/material/styles';
 import { responsiveFontSizes } from '@mui/material/styles';
 
-// Define your custom theme
 const theme = createTheme({
   palette: {
     primary: {
@@ -21,9 +19,8 @@ const theme = createTheme({
   typography: {
     fontFamily: 'Roboto, Arial, sans-serif',
     h1: {
-      fontSize: '3rem', // Custom font size for h1
+      fontSize: '3rem', 
     },
-    // You can customize other typography variants as well
     h2: {
       fontSize: '2.5rem',
     },
@@ -49,7 +46,6 @@ const theme = createTheme({
       },
     },
   },
-  // Add more customizations as needed
 });
 
 

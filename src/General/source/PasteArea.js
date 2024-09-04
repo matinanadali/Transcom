@@ -1,27 +1,34 @@
 import React, { useState } from "react";
-import { Dialog, Button, Typography, Select, MenuItem, Alert } from '@mui/material';
+import { Dialog, Button, Typography, Select, MenuItem } from '@mui/material';
 import '../styles/PasteArea.css';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import '../styles/PasteArea.css';
 import data from '../../data/data.json';
+import AlertBox from "./AlertBox";
 
 const PasteArea = ( { onFileUpdate, openPasteArea, setOpenPasteArea }) => {
     const [ language, setLanguage ] = useState("C++");
     const [ text, setText ] = useState("");
-    const [ alert, setAlert ] = useState(false);
+    const [ alert, setAlert ] = useState(false);  // error-displaying alert
+
+    // Close paste area
     const handleClose = () => {
         setOpenPasteArea(false);
     }
+
     const handleLangChange = (event) => {
       setLanguage(event.target.value);
     }
+
     const handleCancel = () => {
         handleClose();
     }
+
     const handleTextChange = (event) => {
       setText(event.target.value);
     }
+
     const handleOk = (event) => {
       event.preventDefault();
       if (text === "") {
@@ -49,38 +56,37 @@ const PasteArea = ( { onFileUpdate, openPasteArea, setOpenPasteArea }) => {
                     },
                   }}
                   >
-        <Alert severity="error" sx={{"display": alert ? "block" : "none"}}>Required field.</Alert>
-        <DialogContent className="dialogContent">
-          <div className="direction">
-            <Typography variant="h4" >1. Paste your code</Typography>
-          </div>
-          <textarea
-            className="pasteTextArea"
-            autoFocus
-            margin="dense"
-            id="name"
-            fullWidth
-            variant="standard"
-            onChange={handleTextChange}
-          />
-          <div className="selectLangDirection direction">
-  
-            <Typography variant="h4">2. Select source language: </Typography>
-            <div className="selectContainer">
-              <Select id="sourceLangSelect" value={language} onChange={handleLangChange}>
-                {data['supported-languages'].map((lang) => 
-                  <MenuItem value={lang.name}>{lang.name}</MenuItem> 
-                )}
-              </Select>
-          </div>
-          </div>
-            
+          <AlertBox display={alert}  text="You forgot to paste your code :)"/>
+          <DialogContent className="dialogContent">
+            <div className="direction">
+              <Typography variant="h4" >1. Paste your code</Typography>
+            </div>
+            <textarea
+              className="pasteTextArea"
+              autoFocus
+              margin="dense"
+              id="name"
+              fullWidth
+              variant="standard"
+              onChange={handleTextChange}
+            />
+
+            <div className="selectLangDirection direction">
+              <Typography variant="h4">2. Select source language: </Typography>
+              <div className="selectContainer">
+                <Select id="sourceLangSelect" value={language} onChange={handleLangChange}>
+                  {data['supported-languages'].map((lang) => 
+                    <MenuItem value={lang.name}>{lang.name}</MenuItem> 
+                  )}
+                </Select>
+              </div>
+            </div>
+          </DialogContent>
           
-        </DialogContent>
-        <DialogActions>
-          <Button variant="contained" className="cancelButton" onClick={handleCancel} sx={{'backgroundColor': 'rgba(66, 66, 66, 0.2)', 'color': '#424242'}}>Cancel</Button>
-          <Button variant="contained" type="submit" onClick={handleOk}>Ok</Button>
-        </DialogActions>
+          <DialogActions>
+            <Button variant="contained" className="cancelButton" onClick={handleCancel} sx={{'backgroundColor': 'rgba(66, 66, 66, 0.2)', 'color': '#424242'}}>Cancel</Button>
+            <Button variant="contained" type="submit" onClick={handleOk}>Ok</Button>
+          </DialogActions>
         </Dialog>
     )
 }

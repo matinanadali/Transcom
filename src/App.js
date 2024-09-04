@@ -12,17 +12,17 @@ const App = () => {
 
     return (
     <BrowserRouter>
-    <ContentContext.Provider value={{file, setFile}}>
-    <div className="App">
-    <ResponsiveAppBar />
-    
-      <Routes>
-        
-          <Route index element={<Home />} />
-          <Route path="upload" element={<Upload />} />
-          <Route path="translate" element={<Translate />} />
-      </Routes>
-      </div>
+      <ContentContext.Provider value={{file, setFile}}>
+        <div className="App">
+
+          <ResponsiveAppBar />
+          <Routes>
+              <Route index element={<Home />} />
+              <Route path="upload" element={<Upload />} />
+              <Route path="translate" element={<Translate />} />
+          </Routes>
+          
+        </div>
       </ContentContext.Provider>
     </BrowserRouter>
     )
