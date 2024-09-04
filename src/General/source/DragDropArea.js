@@ -3,7 +3,7 @@ import '../styles/DragDropArea.css';
 import data from '../../data/data.json';
 import { useDropzone } from 'react-dropzone';
 
-const DragDropArea = ( { onFileUpdate }) => {
+const DragDropArea = ( { onFileUpdate, setAlertText }) => {
   const [isDropActive, setIsDropActive] = useState(false);
   const {getRootProps, getInputProps} = useDropzone({noClick :true});
   const handleDragEnter = useCallback((event) => {
@@ -28,10 +28,11 @@ const DragDropArea = ( { onFileUpdate }) => {
     event.preventDefault();
     event.stopPropagation();
     setIsDropActive(false);
-    console.log(event.dataTransfer.files.length);
-    console.log('Drop event:', event);
-    console.log('DataTransfer items:', event.dataTransfer.items);
-    console.log('DataTransfer files:', event.dataTransfer.files);
+    
+    if (event.dataTransfer.files.length === 0) {
+      setAlertText("Drag drop feature currently not supported. Please try a different way of uploading your file.");
+      return;
+    }
     const file = event.dataTransfer.files[0];
 
     const extension = '.' + file.name.split('.').pop();

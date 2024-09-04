@@ -1,0 +1,63 @@
+.pasteArea {
+    min-width: 80vw;
+}
+
+.pasteTextArea {
+    min-width: 90%;
+    margin: 0 auto;
+    padding: 2rem;
+    min-height: 30vh;
+    
+}
+
+.pasteTextArea:focus {
+    outline: none;
+    border: 2px solid #229799;
+}
+
+.direction {
+    color: #424242;
+    margin: 1.5rem 0;
+    padding: 0;
+    text-align: left;
+    width: 100%;
+}
+
+.selectLangDirection {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.selectContainer {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-start;
+    margin: 0 1rem;
+}
+
+.selectLanguage {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0 1rem;
+}
+
+.dialogContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cancelButton {
+    background-color: rgba(66, 66, 66, 0.3);
+    color: #424242;
+}
+
+.cancelButton:hover {
+    background-color: rgba(66, 66, 66, 0.4);
+}
+
+

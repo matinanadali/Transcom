@@ -1,12 +1,12 @@
 import React from "react";
 import { Alert, AlertTitle, Grow } from '@mui/material';
 
-const AlertBox = ( { display }) => {
+const AlertBox = ( { display, text }) => {
     return (
         <Grow  in={display}>
             <Alert severity="error">
             <AlertTitle >Error</AlertTitle>
-            Unsupported file format. Please check <a href="/">supported languages.</a></Alert>
+            {text}</Alert>
         </Grow>
         
     )
