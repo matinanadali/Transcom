@@ -9,6 +9,7 @@ A web application designed to help developers translate comments in their source
 **3. Translation:** Automatically translates comments in the code to the selected language using the DeepL API.
 
 **4. Output Options:** Copy translated content to clipboard or download the translated file.
+
 **5. Responsive Design:** The application is designed to adapt to various devices and screen sizes.
 
 ## Technologies Used
