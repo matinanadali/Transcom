@@ -53,6 +53,14 @@
     justify-content: space-between;
 }
 
+.skeletonContainer {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+}
+
 .button {
     margin: 0.8rem 0 0 0;
 }

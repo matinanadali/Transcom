@@ -83,11 +83,13 @@ const Translate = () => {
               </div>
               {
                 (loading) ? (
+                <div className="skeletonContainer">
                   <Skeleton  variant="rectangular" sx={{ bgcolor: "#e0e0e0", height: '50vh', width: '100%'}}>
                     <SyntaxHighlighter  style={monokaiSublime} id="translatedCode" className="codeBox">
                       {translatedFile.content}
                     </SyntaxHighlighter>
                   </Skeleton>
+                </div>
                 ) : (
                   <SyntaxHighlighter  style={monokaiSublime} id="translatedCode" className="codeBox">
                       {translatedFile.content}
