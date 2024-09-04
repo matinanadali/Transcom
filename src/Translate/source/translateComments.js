@@ -1,7 +1,7 @@
 import axios from "axios";
 import data from '../../data/data.json';
 
-const DEEPL_API_KEY = process.env.API_KEY;
+const DEEPL_API_KEY = process.env.REACT_APP_API_KEY;
 const DEEPL_API_URL = 'https://api-free.deepl.com/v2/translate';
 
 const translateText = async (text, targetLang) => {
