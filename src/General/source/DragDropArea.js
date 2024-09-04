@@ -47,7 +47,7 @@ const DragDropArea = ( { onFileUpdate, setAlertText }) => {
         }
     };
 
-  }, [onFileUpdate]);
+  }, [onFileUpdate, setAlertText]);
 
   return (
       <div
