@@ -24,10 +24,9 @@ export default function MouseHoverPopover() {
         onMouseLeave={handlePopoverClose}
         color="primary"
         variant="span"
-        sx={{ cursor: 'pointer' }}
+        sx={{ cursor: 'pointer', zIndex: '10', position: 'relative'}}
       > ANY </Typography>
       <Popover
-        id="mouse-over-popover"
         sx={{ pointerEvents: 'none' }}
         open={open}
         anchorEl={anchorEl}
@@ -42,7 +41,7 @@ export default function MouseHoverPopover() {
         onClose={handlePopoverClose}
         disableRestoreFocus
       >
-        <Typography sx={{ p: 1 }}>30 programming languages supported and counting—more coming soon!</Typography>
+        <Typography sx={{ p: 1 }}>16 programming languages supported and counting—more coming soon!</Typography>
       </Popover>
     </span>
   );

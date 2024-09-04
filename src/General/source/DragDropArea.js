@@ -30,7 +30,7 @@ const DragDropArea = ( { onFileUpdate, setAlertText }) => {
     setIsDropActive(false);
     
     if (event.dataTransfer.files.length === 0) {
-      setAlertText("Drag drop feature currently not supported. Please try a different way of uploading your file.");
+      setAlertText("Drag-and-drop feature is not supported at the moment. Please use an alternative method to upload your file.");
       return;
     }
     const file = event.dataTransfer.files[0];

@@ -2,17 +2,22 @@ import React, { useState } from 'react';
 import { AppBar, Toolbar, IconButton, Typography, Button, Drawer, List, ListItem, ListItemText } from '@mui/material';
 import TranslateIcon from '@mui/icons-material/Translate';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import '../styles/ResponsiveAppBar.css';
 
 const pages = ['Home', 'About', 'Contact'];
 
 const ResponsiveAppBar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleDrawer = (open) => () => {
     setDrawerOpen(open);
   };
+
+  const handleLogoClick = () => {
+    navigate('/');
+  }
 
   const drawer = (
     <div
@@ -31,7 +36,7 @@ const ResponsiveAppBar = () => {
   );
 
   return (
-    <AppBar position="static" sx={{flex: '0 1 auto'}}>
+    <AppBar position="static" sx={{flex: '0 1 auto', zIndex: '10'}}>
       <Toolbar>
         <IconButton
           edge="start"
@@ -44,7 +49,9 @@ const ResponsiveAppBar = () => {
         </IconButton>
         <TranslateIcon style={{ fontSize: '3rem' }}/>
         <Typography variant="h1" sx={{ flexGrow: 1 }}>
+          <div onClick={handleLogoClick} className='logo'>
           TransCom
+          </div>
         </Typography>
         <Button color="inherit" sx={{ display: { xs: 'none', md: 'block' } }}>
           <Link to="upload" className="navLink">

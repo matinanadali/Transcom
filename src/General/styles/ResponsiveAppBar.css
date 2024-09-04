@@ -2,4 +2,11 @@
     text-decoration: inherit;
     color: inherit;
 }
-  
+
+.navLink:hover {
+    cursor: pointer;
+}
+
+.logo:hover {
+    cursor: pointer;
+}
