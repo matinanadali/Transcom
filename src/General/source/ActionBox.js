@@ -11,6 +11,7 @@ import { ContentContext } from "../../ContentContext";
 import AlertBox from "./AlertBox";
 import DragDropArea from "./DragDropArea";
 import PasteArea from "./PasteArea";
+import axios from 'axios';
 
 const iconSize = '40px';
 
@@ -29,6 +30,29 @@ const ActionBox = () => {
             navigate('/translate');
         }
     };
+
+    const handleSampleButtonClick = (language) => {
+        let filePath, name, extension;
+        if (language === "python") {
+            filePath = "/codeSamples/pythonSample.py";
+            name = "pythonSample.py";
+            extension = ".py";
+        } else if (language === "js") {
+            filePath = "/codeSamples/jsSample.js";
+            name = "jsSample.js";
+            extension = ".js";
+        } else {
+            filePath = "/codeSamples/javaSample.java";
+            name = "javaSample.java";
+            extension = ".java";
+        }
+
+        axios.get(filePath)
+        .then(response => {
+        handleFileUpdate({name: name, extension: extension, content: response.data});  // Set the file content
+        })
+        .catch(error => console.error('Error fetching the file:', error));
+    }
 
     const handlePasteCodeClick = () => {
         setOpenPasteArea(true);
@@ -60,14 +84,14 @@ const ActionBox = () => {
                     <Typography variant="h6">Select a language and try a sample:</Typography>
                 </div>
                 <div className="iconBox">
-                    <IconButton color="primary">
+                    <IconButton color="primary" onClick={() => handleSampleButtonClick("python")}>
                         <FaPython size={iconSize}/>
                     </IconButton>
                     <IconButton color="primary">
-                        <SiJavascript size={iconSize}/>
+                        <SiJavascript size={iconSize} onClick={() => handleSampleButtonClick("js")} />
                     </IconButton>
                     <IconButton color="primary">
-                        <FaJava size={iconSize}/>
+                        <FaJava size={iconSize} onClick={() => handleSampleButtonClick("java")}/>
                     </IconButton>
                 </div>
             </div>
