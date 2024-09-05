@@ -59,10 +59,9 @@ const ResponsiveAppBar = () => {
           </Link>
         </Button>
         <Button color="inherit" sx={{ display: { xs: 'none', md: 'block' } }}>
-          How to use
-        </Button>
-        <Button color="inherit" sx={{ display: { xs: 'none', md: 'block' } }}>
-          Contact
+          <Link to="contact" className="navLink">
+            Contact
+          </Link>
         </Button>
       </Toolbar>
       <Drawer

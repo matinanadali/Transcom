@@ -1,0 +1,32 @@
+.Contact {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60vw;
+    margin: auto;
+}
+
+.getInTouchBox {
+    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 4vw 3vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 5vh;
+    width: 40vw;
+}
+
+.contactInfo {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    padding: 2rem;
+}
+
+.projectRepo {
+    padding: 2rem;
+}

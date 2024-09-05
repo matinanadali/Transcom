@@ -33,6 +33,10 @@ const theme = createTheme({
     },
     h5: {
       padding: '0.8rem',
+    },
+    paragraph: {
+      fontSize: '1.3rem',
+      padding: '1.2rem'
     }
     
   },
