@@ -7,7 +7,7 @@ import { FaPython } from "react-icons/fa";
 import { SiJavascript } from "react-icons/si";
 import { FaJava } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
-import { ContentContext } from "../../ContentContext";
+import { FileContext } from "../../FileContext";
 import AlertBox from "./AlertBox";
 import DragDropArea from "./DragDropArea";
 import PasteArea from "./PasteArea";
@@ -16,7 +16,7 @@ import axios from 'axios';
 const iconSize = '40px';
 
 const ActionBox = () => {
-    const { setFile } = useContext(ContentContext);
+    const { setFile } = useContext(FileContext);
     const [ alertText, setAlertText ] = useState("");   // error-displaying alert
     const [ openPasteArea, setOpenPasteArea ] = useState(false);
 

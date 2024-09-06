@@ -10,14 +10,13 @@
 .getInTouchBox {
     box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
-    padding: 4vw 3vw;
+    padding: 2rem 1rem;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     text-align: center;
-    margin-bottom: 5vh;
-    width: 40vw;
+ 
 }
 
 .contactInfo {
@@ -29,4 +28,44 @@
 
 .projectRepo {
     padding: 2rem;
+}
+
+.info {
+    padding: 0rem 1rem 1rem;
+}
+
+.infoLink {
+    text-decoration: none;
+    color: #424242;
+}
+
+.infoLink:hover {
+    color: #229799;
+}
+
+.infoLink:active{
+    text-decoration: underline;
+}
+
+@media (max-width: 1200px) {
+    .contactInfo {
+        flex-wrap: wrap;
+    }
+    .getInTouchBox {
+        margin-top: 5vh;
+    }
+    .animationContainer {
+        display: none;
+    }
+}
+
+@media (max-width: 500px) {
+    .getInTouchBox {
+        box-shadow: none;
+        padding: 0;
+    }
+    .Contact {
+        width: 80vw;
+    }
+
 }

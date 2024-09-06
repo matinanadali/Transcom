@@ -11,7 +11,8 @@ const DownloadButton = ({ file, targetLang }) => {
         element.click();
     }
     return (
-        <Button variant="contained" onClick={downloadFile}>Download!</Button>
+        // Prevent download of undefined file
+        <Button disabled={file.name === ""} variant="contained" onClick={downloadFile}>Download!</Button>
     )
 }
 

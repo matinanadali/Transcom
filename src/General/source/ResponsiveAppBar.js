@@ -5,8 +5,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { Link, useNavigate } from "react-router-dom";
 import '../styles/ResponsiveAppBar.css';
 
-const pages = ['Home', 'About', 'Contact'];
-
 const ResponsiveAppBar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const navigate = useNavigate();
@@ -26,11 +24,18 @@ const ResponsiveAppBar = () => {
       onKeyDown={toggleDrawer(false)}
     >
       <List>
-        {pages.map((text) => (
-          <ListItem button key={text}>
-            <ListItemText primary={text} />
+          <ListItem button>
+            <Link className="navLink" to="upload">
+              Translate Comments
+            </Link>
+            <ListItemText />
           </ListItem>
-        ))}
+          <ListItem button>
+            <Link className="navLink" to="contact">
+              Contact
+            </Link>
+            <ListItemText />
+          </ListItem>
       </List>
     </div>
   );

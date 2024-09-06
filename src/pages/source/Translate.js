@@ -1,5 +1,5 @@
-import React, { useContext, useState } from "react";
-import { ContentContext } from "../../ContentContext";
+import React, { useContext, useState, useEffect } from "react";
+import { FileContext } from "../../FileContext";
 import Grid from "@mui/material/Grid2";
 import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/default-highlight";
 import '../styles/Translate.css';
@@ -12,6 +12,7 @@ import DownloadButton from "../../Translate/source/DownloadButton";
 import data from "../../data/data.json";
 import { monokaiSublime } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import CopyButton from "../../Translate/source/CopyButton";
+import { useNavigate } from "react-router-dom";
 
 // Lottie animation default options
 const defaultOptions = {
@@ -24,10 +25,20 @@ const defaultOptions = {
 };
 
 const Translate = () => {
-    const { file } = useContext(ContentContext);
+    const navigate = useNavigate();
+    const { file } = useContext(FileContext);
     const [translatedFile, setTranslatedFile] = useState({name:"", content:"", extension:""});
     const [targetLang, setTargetLang] = useState('FR');
     const [loading, setLoading] = useState(false);
+    
+    useEffect(() => {
+      // Check if the variable `file` is null or undefined
+      console.log(file);
+      if (!file) {
+        // Redirect to the home page
+        navigate('/');
+      }
+    }, [file, navigate]); // Runs the effect when `file` or `navigate` changes
 
     const onTargetLangChange = (newTargetLang) => {
         setTargetLang(newTargetLang);
@@ -66,9 +77,9 @@ const Translate = () => {
           <Grid container className="codeBoxContainer" columnSpacing={2} size='12'>
             
             <Grid size={{ xs: 12, md: 12, lg: 5}}>
-              <div className="fileName">{file.name}</div>
+              <div className="fileName">{!file ? "" : file.name}</div>
               <SyntaxHighlighter language="python" style={monokaiSublime} className="codeBox">
-                {file.content}
+                {!file ? "" : file.content}
               </SyntaxHighlighter>
             </Grid>
             <Grid size={{ xs: 0, md: 0, lg: 2}}>

@@ -18,7 +18,7 @@ const CopyButton = ( {text} ) => {
     
     return (
         <div>
-            <IconButton className="CopyButton" color="background" onClick={handleClick}>
+            <IconButton disabled={text === ""} className="CopyButton" color="background" onClick={handleClick}>
                 <IoCopyOutline size="25px"></IoCopyOutline> 
             </IconButton>
             <Message text="Text copied to clipboard!" open={messageOpen} setOpen={onSetOpen} />
