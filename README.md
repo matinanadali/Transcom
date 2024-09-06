@@ -31,6 +31,11 @@ cd transcom
 ```shell
 npm install
 ```
+**3. Set up environment variables
+Create your API key <a href="https://www.deepl.com/en/pro-api">here</a>. Then, create a .env file in the root of your project and add your DeepL API key:
+```shell
+REACT_APP_DEEPL_API_KEY=your-deepl-api-key
+```
 **3. Start the Development Center**
 ```shell
 npm start
@@ -42,18 +47,19 @@ Contributions are always welcome! If you have suggestions, bug reports, or would
 ## Needed improvements/ issues to resolve
 1. General Performance
 
-     - [ ] Drag-and-drop feature bug fix. At this time, the drag-and-drop functionality for file uploads is not supported.
+     - [ ] Ensure drag-and-drop feature is stable across various browsers
      - [ ] Automatic recognition of the source language of the pasted text.
    
 2. User Interface
    
-     - [ ] Searchable dropdown for languages
-     - [ ] Design how-to-use and contact pages
+     - [ ] Searchable dropdown for languages.
+     - [x] Design <s>how-to-use and</s> contact page
 
 3. Additional features
 
-     - [ ] Code samples for the user to test the functionality of the app.
+     - [x] Code samples for the user to test the functionality of the app.
      - [ ] Support for multiple file and directory uploads.
+     - [ ] Connect with Github to translate comments in github repositories
      - [ ] Support for more programming languages.
    
 
