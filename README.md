@@ -31,12 +31,14 @@ cd transcom
 ```shell
 npm install
 ```
-**3. Set up environment variables
+
+**3. Set up environment variables**
+
 Create your API key <a href="https://www.deepl.com/en/pro-api">here</a>. Then, create a .env file in the root of your project and add your DeepL API key:
 ```shell
 REACT_APP_DEEPL_API_KEY=your-deepl-api-key
 ```
-**3. Start the Development Center**
+**4. Start the Development Center**
 ```shell
 npm start
 ```
