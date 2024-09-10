@@ -1,10 +1,13 @@
 .navLink {
     text-decoration: inherit;
     color: inherit;
+    transition: color 0.5s ease-in-out;
 }
 
 .navLink:hover {
     cursor: pointer;
+    color: #474747;
+    transition: color 0.5s ease-in 0;
 }
 
 .logo:hover {
